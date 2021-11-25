@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block head %}
+<title>Edit</title>
+{% endblock %}
+
+{% block body %}
+
+
+<div class="container3">
+  <div class="row">
+    <div class="col">
+
+      <h1>Edit Data:</h1>
+
+
+      <form action="" method="POST" enctype="multipart/form-data">
+
+        <div class="form-group-3">
+		 Title: <input type='text' name='title' id='title' class="title1" value="{{vid[0][2]}}">
+        <br>
+        Description: <textarea name='description' id='description' class="description1"  rows="4" cols="50">
+		{{vid[0][3]}}
+		</textarea>
+        <br>
+
+
+        </div>
+
+        <button type="submit" class="btn btn_1" >Submit</button>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

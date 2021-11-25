@@ -1,0 +1,60 @@
+<html>
+<head>
+<style>
+.danger
+{
+  color: red;
+	margin-left:auto;
+	margin-right:auto;
+	height:20px;
+    width:45%;
+	font-size:18px;
+/*	margin-top:-px;*/
+	background-color:#ffd4d4;
+	border-radius:5px;
+
+}
+.success{
+    color: #008678;
+	margin-left:auto;
+	margin-right:auto;
+	height:20px;
+    width:45%;
+	font-size:18px;
+/*	margin-top:-25px;*/
+	background-color:#eab485;
+	border-radius:5px;
+}
+
+h4{
+margin-left:auto;
+margin-right:auto;
+
+}
+.danger1 {
+margin-left:auto;
+margin-right:auto;
+height:18px;
+width:35%;
+}
+.success1 {
+margin-left:auto;
+margin-right:auto;
+height:18px;
+width:35%;
+}
+</style>
+</head>
+<body>
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+  	<script>
+      var messages = {{ messages | safe }};
+      for (var i=0; i<messages.length; i++) 
+      {
+        alert(messages[i]);
+      }
+  	</script>
+ {% endif %}
+{% endwith %}
+</body>

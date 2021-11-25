@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+{% block head %}
+<title>Registration</title>
+<link rel="stylesheet" href="uploads/css/style.css">
+<script>
+function validation()
+{
+var mobno=document.getElementById("mob").value;
+var span=document.getElementById("sp");
+var status;
+if(mobno.length==10)
+{
+if(mobno[0]=='6'|| mobno[0]=='7' || mobno[0]=='9'|| mobno[0]=='8') 
+{
+status=true;
+}
+else
+{
+status=false;
+span.innerText="Invalid Mobile N0.";
+span.style.color="red";
+}
+}
+else
+{
+span.innerText="Invalid Mobile N0.";
+span.style.color="red";
+status=false;
+}
+return status;
+}
+
+</script>
+{% endblock %}
+{% block body %}
+<div class="cta-1">
+<div class="triangle-with-shadow"></div>
+
+<div class="box_1_1">
+  <div class="reg">
+<h1 class="reg1">Registration Form :</h1>
+</div>
+<form action="/register" method="POST" class="form_1">
+
+<div class="form-group-2">
+  Name:
+    <input type="text" name="name" class="form_control" placeholder="Name" required>
+
+</div>
+<div class="form-group-2">
+  Username:
+<input type="text" name="username" class="form_control" placeholder="Username" required><br>
+</div>
+<div class="form-group-2">
+Gender:&emsp;<input type="radio" id="male" name="gender" class="form_control" value="male" required="required">
+<label for="male">Male</label>&emsp;
+<input type="radio" id="female" name="gender" class="form_control" value="female" required="required">
+<label for="female">Female</label>&emsp;
+<input type="radio" id="other" name="gender" class="form_control" value="other" required="required">
+<label for="female">Other</label><br>
+</div>
+<div class="form-group-2">
+
+Join as a : &emsp;<input type="radio" id="teacher" name="person" class="form_control" value="teacher" required="required">
+<label for="teacher">Teacher</label>&emsp;
+<input type="radio" id="student" name="person" class="form_control" value="student" required="required">
+<label for="student">Student</label>&emsp;
+</div>
+<div class="form-group-2">
+  Phone Number :
+<input type="number" id="mob" name="phone" class="form_control" placeholder="Phone No" maxlength="10" required><br>
+<span id="sp"></span>
+</div>
+<div class="form-group-2">
+  E-mail:
+<input type="email" name="email" class="form_control"  id="textcolor" placeholder="E-mail" value="{{email}}" required><br>
+</div>
+<div class="form-group-2">
+  Date of Birth:&emsp; <input type="date" name="dob" class="form_control" required><br>
+</div>
+<div class="form-group-2">
+  Password :
+<input type="password" name="password" class="form_control" placeholder="Password" required><br>
+</div>
+<div class="form-group-2">
+  Confirm-Password :
+<input type="password" name="confirm password" class="form_control" placeholder="Confirm password" required>
+</div>
+  <button class="btn" type="submit">Submit</button>
+    </form>
+
+
+</div>
+</div>
+<footer>
+
+  <div class="cont1">
+
+    <div class="cont1_1"><a href="/home">dotlearning :</a><br>
+    digital tool of teaching and learning
+    </div>
+    <div class="cont1_2">
+     <span style="color:#d8ac0d;font-size:20px;font-family:cursive;">About Us:<span>
+    </div>
+    <div class="cont1_3">
+    <span style="color:#d8ac0d;font-size:20px;font-family:cursive;">Contact Us:<span><br>&nbsp;&nbsp;
+    <i class="fa fa-phone fa_1" aria-hidden="true"></i>&nbsp; <span style="color:grey;">:</span><span style="color:grey;font-size:10px; ">  #########</span><br>
+     &nbsp;&nbsp;<i class="fa fa-envelope fa_1" aria-hidden="true"></i>&nbsp; <span style="color:grey;">:</span><span style="color:grey;font-size:10px; ">  #########</span>
+    </div>
+  </div>
+
+<div class="cont2">
+
+<div class="cont2_1 cont2_1_1">
+<span style="color:#d8ac0d;font-size:20px;font-family:cursive;margin:40px;">Navigate <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i> :</span>
+
+<ul class="last_nav">
+  <li class="last_li"><a href="/"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
+  <li class="last_li"><a  href="/register"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Sign Up</a></li>
+  <li class="last_li"><a  href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Log In</a></li>
+  <li class="last_li"><a  href="/academic"><i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp;Academic</a></li>
+</ul>
+</div>
+
+
+  <div class="cont2_1">
+    <span style="color:#d8ac0d;font-size:20px;font-family:cursive;margin:5px;">Sponsored by :</span><br><br>
+    <span style="font-family:Tangerine;font-size:25px;margin-left:20px; font-weight:lighter;color:white;">Prof(Dr.)Hradyesh Kumar Mishra</span><br><span style="color:grey;margin:20px;line-height:1.8;">(Faculty of Computer Science and Engineering <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kamla Nehru Insititue of Technology,Sultanpur .</span>
+  </div>
+
+</div>
+</footer>
+
+
+{% endblock %}

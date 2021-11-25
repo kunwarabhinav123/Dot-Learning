@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{% block head %}
+<title>Log In</title>
+{% endblock %}
+{% block body %}
+
+
+
+
+<div class="main">
+  <div class="container_1">
+    <div class="sub_container">
+
+      <img  class="img1"src="uploads/images/technology.png" alt="loading image">
+
+    </div>
+
+
+      <div class="sub_container sub1-container">
+
+
+            <h2 class="form-title">Sign In:</h2>
+            <form action="/login" method="POST" class="register-form" id="login-form">
+                <div class="form-group_1_1">
+                    <label for="your_name"><i class="fa fa-user" aria-hidden="true"></i></label>
+                    <input type="name" name="username" id="your_name" placeholder="Username" required/>
+                </div>
+                <div class="form-group_1_1">
+                    <label for="your_pass"><i class="fa fa-lock" aria-hidden="true"></i></label>
+                    <input type="password" name="password" id="your_pass" placeholder="Password" required/>
+                </div>
+                <div class="form-group_1_1 form-button">
+                    <input type="submit" name="signin" id="signin" class="form-submit" value="Submit"/>
+                </div>
+            </form>
+
+        </div>
+
+      </div>
+
+  </div>
+  <footer>
+
+    <div class="cont1">
+
+      <div class="cont1_1"><a href="/home">dotlearning :</a><br>
+      digital tool of teaching and learning
+      </div>
+      <div class="cont1_2">
+       <span style="color:#d8ac0d;font-size:20px;font-family:cursive;">About Us:<span>
+      </div>
+      <div class="cont1_3">
+      <span style="color:#d8ac0d;font-size:20px;font-family:cursive;">Contact Us:<span><br>&nbsp;&nbsp;
+      <i class="fa fa-phone fa_1" aria-hidden="true"></i>&nbsp; <span style="color:grey;">:</span><span style="color:grey;font-size:10px; ">  #########</span><br>
+       &nbsp;&nbsp;<i class="fa fa-envelope fa_1" aria-hidden="true"></i>&nbsp; <span style="color:grey;">:</span><span style="color:grey;font-size:10px; ">  #########</span>
+      </div>
+    </div>
+
+  <div class="cont2">
+
+  <div class="cont2_1 cont2_1_1">
+  <span style="color:#d8ac0d;font-size:20px;font-family:cursive;margin:40px;">Navigate <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i> :</span>
+
+  <ul class="last_nav">
+    <li class="last_li"><a href="/"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
+    <li class="last_li"><a  href="/register"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Sign Up</a></li>
+    <li class="last_li"><a  href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Log In</a></li>
+    <li class="last_li"><a  href="/academic"><i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp;Academic</a></li>
+  </ul>
+  </div>
+
+
+    <div class="cont2_1">
+      <span style="color:#d8ac0d;font-size:20px;font-family:cursive;margin:5px;">Sponsored by :</span><br><br>
+      <span style="font-family:Tangerine;font-size:25px;margin-left:20px; font-weight:lighter;color:white;">Prof(Dr.)Hradyesh Kumar Mishra</span><br><span style="color:grey;margin:20px;line-height:1.8;">(Faculty of Computer Science and Engineering <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kamla Nehru Insititue of Technology,Sultanpur .</span>
+    </div>
+
+  </div>
+
+  </footer>
+
+
+{% endblock %}

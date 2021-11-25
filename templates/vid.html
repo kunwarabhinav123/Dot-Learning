@@ -1,0 +1,335 @@
+{% extends "layout.html" %}
+{% block head %}
+   <title>Teacher Dashboard</title>
+
+
+    <link href="https://vjs.zencdn.net/7.8.3/video-js.css" rel="stylesheet" />
+  <style>
+    .outer{
+      background-color:#f4e5d870;
+    }
+    .teachername{
+      font-size:20px;
+      font-family:roboto;
+      color:#00c0ac;
+    }
+    .triangle{
+
+      height:100px;
+      width:100px;
+        background-color:#e6b78d;
+          box-shadow: -1px -1px 10px -2px rgba(0, 0, 0, 0.5);
+          float:left;
+
+
+    }
+    .tri{
+      margin-left:30px;
+    }
+
+    .angle{
+      background-color:#f7c79c;
+    }
+
+    .container4{
+    height:500px;
+    width:90%;
+    background-color:#f7c79c;
+      box-shadow: -1px -1px 10px -2px rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+      position:relative;
+     top:50px;
+      left:5%;
+    }
+
+    .up_1_1{
+
+    color:white;
+    margin-left:10px;
+
+    }
+    .form-group-3{
+      font-size:20px;
+      color:#e1f5fe;
+      margin:20px;
+    }
+    .title2{
+      height:30px;
+      width:30%;
+      background-color:white;
+      color:black;
+      border:none;
+      border-radius: 5px;
+    margin-top:5px;
+
+    }
+
+    .description_2
+    {
+      position:relative;
+      top:40px;
+      background-color:white;
+      color:black;
+      border:none;
+      border-radius: 5px;
+    }
+    .title2:hover
+    {
+      color:#87d1e2;
+      background-color:white;
+    }
+    .custom-file{
+      position: relative;
+      top:45px;
+    margin-top:-46px;
+    }
+    .custom-file-input{
+    width:30%;
+    position:relative;
+    left:100px;
+    bottom:46px;
+
+    }
+    .btn3_1{
+      background-color:#00c0ac;
+      color:#f7c79c;
+      height:30px;
+      width:80px;
+      position:relative;
+      left:90%;
+      border:none;
+      box-shadow: 0 2px 5px -2px rgba(0,0,0,.9);
+
+    }
+   .btn_3: hover{
+      background-color:white;
+      color: #3bbacf;
+    cursor: pointer;
+    }
+
+    .container5{
+      position:relative;
+      top:100px;
+      width:50%;
+      left:0.5%;
+      background-color:#f7c79c;
+        box-shadow: -1px -1px 10px -2px rgba(0, 0, 0, 0.5);
+margin-top:10px;
+border-radius:10px;
+    }
+    .video-js{
+      background-color: white;
+      position: relative;
+      left:50px;
+       top:20px;
+        box-shadow: -1px -1px 10px -2px rgba(0, 0, 0, 0.5);
+    }
+
+
+ .inner_container_5{
+   position: relative;
+  left:25px;
+}
+ .edit_delete
+{
+   position:relative;
+   left:84%;
+  color:#00c0ac;
+}
+ .edit_delete a{
+  color:#00c0ac;
+  text-decoration: none;
+}
+.user_01{
+  height:60px;
+ width:auto;
+  /*border:1px solid black;*/
+  margin-top:30px;
+  margin-bottom:25px;
+  display:flex;
+  color:#00c0ac;
+
+}
+.n_0_ame{
+  margin-left:5px;
+}
+.t_0_tile{
+width:auto;
+position:relative;
+top:10px;
+
+border-color:none;
+
+margin-left:5px;
+}
+       </style>
+
+
+ <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+   <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+
+
+
+
+{% endblock %}
+
+{% block body %}
+
+ <div class="outer">
+
+
+ <div class="user_01">
+  <!-- !-->
+  <img src="uploads/images/user.png" style="height:50px;width:50px;" alt="">
+   <h4 class="n_0_ame">{{name}}</h4>
+
+ </div>
+
+
+
+
+    <div class="tri">
+      <div class="triangle" ></div>
+      <div class="triangle angle" ></div>
+      <div class="triangle"></div>
+     <div class="triangle angle"></div>
+     <div class="triangle"></div>
+    <div class="triangle angle"></div>
+     <div class="triangle "></div>
+    <div class="triangle angle"></div>
+    <div class="triangle"></div>
+     <div class="triangle angle"></div>
+    <div class="triangle"></div>
+    <div class="triangle angle"></div>
+
+  </div>
+
+
+    <div class="container4">
+         <h1  class="up_1_1">Upload Lecture:</h1>
+
+
+         <form action="" method="POST" enctype="multipart/form-data">
+           Class Code&emsp;
+ 		   <input type="hidden" id="teachername" name="teachername" value="{{name}}">
+ 		    <input type='text' name='uuid' id='uuid' value="{{uid}}" readonly>
+             <br>
+           <div class="form-group-3">
+            Title:&emsp;&emsp;&emsp; <input type='text' name='title' id='title' class="title2">
+             <br>
+             <br>
+			Subject:&emsp;&emsp;<input type='text' name='subject' id='subject' class="title2">
+      <br>
+			<div class="d">
+            Description: <textarea name='description' id='description' rows="4" cols="50" class="description_2">
+  		    </textarea>
+			<br><br>
+
+
+             <div class="custom-file">
+               <label class="custom-file-label" for="video"><h5>Select Video :</h5></label>
+              <input type="file" class="custom-file-input" name="video" id="video">
+
+            </div>
+           </div>
+           </div>
+<div class="btn3">
+         <button type="submit" class="btn3_1">Upload</button>
+</div>
+       </form>
+
+
+</div>
+</div>
+<br>
+
+
+
+<div class="container5">
+
+
+
+  {% for line in vid %}
+
+
+      {% if line[0]==uid %}
+<div class="t_0_tile">
+  <h4> <span style="color:#00c0ac; margin-left:10px;">Title & Subject :</span>&emsp;{{line[2]}} :: {{line[4]}}</h4>
+
+          <h5><span style="color:#00c0ac; margin-left:10px;">Description :</span>&nbsp;{{line[3]}}</h5>
+
+</div>
+            {% if line[5]== "MP4" %}
+
+			  <video id="my-video" class="video-js" controls preload="auto" width="500" height="264" poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+			  <source src={{ url_for('static', filename=line[1]) }} type="video/mp4" />
+			  <source src={{ url_for('static', filename=line[1]) }} type="video/webm" />
+			  <p class="vjs-no-js">
+			  <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+			  </p>
+			  </video>
+            {%endif%}
+
+
+
+
+			{% if line[5]== "PDF" %}
+<div class="inner_container_5">
+
+
+			<iframe src={{ url_for('static', filename=line[1]) }} type="application/pdf"width="500" height="264"></iframe>
+      </div>
+			{%endif%}
+			{% if line[5]== "PPTX" %}
+    <div class="inner_container_5">
+			<a href={{ url_for('static', filename=line[1]) }} download>{{line[1]}}</a>
+        </div>
+			{%endif%}
+			{% if line[5]== "DOCX" %}
+        <div class="inner_container_5">
+			<a href={{ url_for('static', filename=line[1]) }} download>{{line[1]}}</a>
+  </div>
+
+			{%endif%}
+			{% if line[5]== "JPG" %}
+        <div class="inner_container_5">
+			<img src={{ url_for('static', filename=line[1]) }} height="auto" width=30%>
+        </div>
+			{%endif%}
+			{% if line[5]== "JPEG" %}
+          <div class="inner_container_5">
+			<img src={{ url_for('static', filename=line[1]) }} height="auto" width=30%>
+        </div>
+			{%endif%}
+			{% if line[5]== "GIF" %}
+          <div class="inner_container_5">
+			<img src={{ url_for('static', filename=line[1]) }} height="auto" width=30%>
+        </div>
+			{%endif%}
+		  <br>
+
+         {{line[8]}}<!-- this displays date and time-->
+
+
+
+
+
+
+<div class="edit_delete">
+  <a href='/vid/edit/{{line[1]}}'>
+<h5>Edit
+</a>
+ &emsp;&emsp;<a href='/vid/delete/{{(line[1])}}'>Delete</a>
+
+ </div>
+ <hr>
+
+       {% endif %}
+
+  {% endfor%}
+
+ </div>
+
+<script src="https://vjs.zencdn.net/7.8.3/video.js"></script>
+
+{% endblock %}

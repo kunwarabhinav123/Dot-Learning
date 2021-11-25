@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width ,initial-scale=1.0">
+    <meta http-equiv="X-UA-compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+	<link href="uploads/images/favicon.png" rel="icon" type="image/png">
+    <link rel="stylesheet" href="uploads/css/style.css">
+ {% block head %}
+    {% endblock %}
+</body>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+
+  <a href="/home">dotlearning</a>
+  </div>
+  <ul class="menu-bar">
+<li class="lia"><a  href="/academic"><i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp;Academic</a></li>
+  {% if session.log %}
+  <li class="lia"><a  href="/vid"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Dashboard</a></li>
+  <li class="lia"><a  href="/logout"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;logout</a></li>
+  {% elif session.log1 %}
+  <li class="lia"><a  href="/student"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Dashboard</a></li>
+  <li class="lia"><a  href="/logout"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;logout</a></li>
+  {% else %}
+  <li class="lia"><a  href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Log In</a></li>
+  {% endif %}
+    <li class="lia"><a  href="/"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
+  </ul>
+  </nav>
+    {% include "includes/message.html" %}
+    {% block body %}
+    {% endblock %}
+</body>
+</html>

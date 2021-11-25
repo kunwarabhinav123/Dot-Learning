@@ -1,0 +1,247 @@
+{% extends "layout.html" %}
+{% block head %}
+<title>Student Dashboard</title>
+
+ <link href="https://vjs.zencdn.net/7.8.3/video-js.css" rel="stylesheet" />
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("filterDiv");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+<style>
+.container {
+  overflow: hidden;
+}
+.filterDiv {
+
+  display: none; /* Hidden by default */
+}
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+.active{
+  width:100px;
+border-radius:2px;
+height:50px;
+}
+
+/* Add a light grey background on mouse-over */
+.btn:hover {
+  background-color: #ddd;
+}
+.tanker{
+width:60%;
+border-radius:30px;
+margin-top:50px;
+margin-bottom:30px;
+  background-color:#f7c79c;
+}
+.video-js{
+  background-color: #f7c79c;
+  position: relative;
+  left:50px;
+  top:20px;
+    box-shadow: -1px -1px 10px -2px rgba(0, 0, 0, 0.5);
+}
+.cont_ainer_6{
+  height:120px;
+  width:30%;
+  /*border:1px solid #e4a063;*/
+  border-radius:10px;
+  margin:20px;
+  position:relative;
+  left:68%;
+  box-shadow: -1px -1px 10px -2px rgba(0, 0, 0, 0.5);
+    background-color:#dddddd9c;
+
+}
+.inner_container_5{
+  position: relative;
+ left:50px;
+}
+.User_02{
+  float:right;
+  margin-top:2px;
+  margin-right:2px;
+}
+.Co_de_01{
+margin-top:20px;
+}
+.si_01_ze{
+  color:black;
+  background:#00c0ac;
+  height:40px;
+  width:100px;
+  height:auto;
+
+
+}
+</style>
+
+
+
+{% endblock %}
+
+{% block body %}
+
+
+
+  <div class="cont_ainer_6">
+
+ <span style="color:#00c0ac;position:relative;top:10px;left:10px;">{{name}}</span>
+     <img src="uploads/images/3users.png"  id="formbutton"style="width:50px;height:50px;float:right;margin-top:5px;margin-right:5px;" alt="">
+
+
+
+   <form action="" method="POST" enctype="multipart/form-data">
+<div class="Co_de_01">
+  &nbsp;&nbsp;Enter Class Code :&nbsp;<input type='text' name='uuid' id='uuid' required>
+</div>
+
+           <br>
+          <button  style="box-shadow: -1px -1px 10px -2px rgba(0, 0, 0, 0.5);color:grey;background-color:#00c0ac;border:none;margin-left:100px;"type="submit" >Submit</button>
+
+       </form>
+
+
+         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  	  <div id="myBtnContainer">
+    <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+    {% for line in filter %}
+    <button class="btn si_01_ze"  onclick="filterSelection('{{line}}')"> {{line}}</button>
+   {%endfor%}
+
+    </div>
+ <div class="container tanker">
+   {% for line in vid %}
+        {% for d in uid%}
+  	      {%if uuid==d[0]%}
+              {% if d[2]==line[0]%}
+                    <div class="filterDiv {{line[6]}}">
+                   <h4 style="color:black;margin-top:20px;">&emsp;&emsp;&emsp;{{line[2]}} :: {{line[4]}}</h4>
+
+                           {% if line[5]== "MP4" %}
+
+
+  			  <video id="my-video" class="video-js" controls preload="auto" width="640" height="264" poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+ 	 		  <source src={{ url_for('static', filename=line[1]) }} type="video/mp4" />
+ 	 		  <source src={{ url_for('static', filename=line[1]) }} type="video/webm" />
+ 	 		  <p class="vjs-no-js">
+ 	 		  <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+ 	 		  </p>
+	 		  </video>
+             {%endif%}
+   			{% if line[5]== "PDF" %}
+      <div class="inner_container_5">
+ 	 		<iframe src={{ url_for('static', filename=line[1]) }} type="application/pdf" width="640" height="264"></iframe>
+</div>
+ 	 		{%endif%}
+ 			{% if line[5]== "PPTX" %}
+      <div class="inner_container_5">
+ 	 		<a href={{ url_for('static', filename=line[1]) }} download>{{line[1]}}</a>
+      </div>
+ 	 		{%endif%}
+ 			{% if line[5]== "DOCX" %}
+      <div class="inner_container_5">
+ 	 		<a href={{ url_for('static', filename=line[1]) }} download>{{line[1]}}</a>
+      </div>
+ 	 		{%endif%}
+             {% if line[5]== "JPG" %}
+             <div class="inner_container_5">
+ 	 		<img src={{ url_for('static', filename=line[1]) }} height="auto" width=30%>
+      </div>
+ 	 		{%endif%}
+ 	 		{% if line[5]== "JPEG" %}
+      <div class="inner_container_5">
+ 	  		<img src={{ url_for('static', filename=line[1]) }} height="auto" width=30%>
+</div>
+ 			{%endif%}
+ 		 	{% if line[5]== "GIF" %}
+      <div class="inner_container_5">
+ 		 	<img src={{ url_for('static', filename=line[1]) }} height="auto" width=30%>
+      </div>
+		 	{%endif%}
+ 		 		  <h5 style="color:#00c0ac;margin-bottom:30px;">&emsp;&emsp;&emsp;&nbsp;{{line[3]}}</h5>
+				  {{line[8]}}<!-- this displays date and time-->
+          <hr>
+		  
+ 		 		  </div>
+				  
+
+           {%endif%}
+ 		   {% endif %}
+
+       {% endfor %}
+    
+   {% endfor%}
+
+     </div>
+
+
+
+  <script src="https://vjs.zencdn.net/7.8.3/video.js"></script>
+
+{% endblock %}

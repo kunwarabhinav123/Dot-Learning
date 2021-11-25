@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width ,initial-scale=1.0">
+  <meta http-equiv="X-UA-compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+     <title>Email Verification</title>
+     <style>
+html {
+  margin: 0;
+  padding: 0;
+}
+
+nav{
+  height:50px;
+  width:100%;
+ /*border:1px solid black;*/
+background-color: #f4e5d870;
+box-shadow: 0 2px 5px -2px rgba(0,0,0,.9);
+
+display:flex;
+justify-content: space-between;
+
+}
+.logo{
+/*border:1px solid black;*/
+
+  margin-left:30px;
+  padding:5px;
+  font-family: 'Tangerine', serif;
+   font-size: 48px;
+   text-shadow: 4px 4px 4px #aaa;
+
+
+}
+.logo a{
+  text-decoration: none;
+  color:#00c0ac;
+}
+.menu-bar{
+  height:47px;
+  width:13%;
+  margin:1px;
+  padding:1px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+list-style: none;
+margin-right: 10px;
+  font-size: 13px;
+}
+.lia{
+/*  border:1px solid black;*/
+  padding:2px;
+  margin:1px;
+
+}
+.menu-bar a{
+
+  text-decoration: none;
+    color:#00c0ac;
+
+}
+.menu-bar a:hover {
+  border-top: 4px solid #00c0ac;
+  border-bottom: 4px solid #00c0ac;
+  padding: 6px 0;
+    transition: 0.9s linear;
+}
+.container_verify{
+  height:700px;
+  width:100%;
+  background-color:#f4e5d870;
+  border:1px solid #f4e5d879;
+  margin-top:10px;
+}
+.box{
+  height:200px;
+  width:50%;
+  border:1px solid #d86e1279;
+  margin-left:300px;
+  margin-top:100px;
+  box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  padding:10px;
+
+}
+h4{
+  font-family: Poppins;
+    font-size: 20px;
+    color:light grey;
+    font-weight: 100;
+}
+h3{
+  font-family: Poppins;
+    font-size: 15px;
+    color:light grey;
+    margin-left:50px;
+}
+.button{
+
+    background-color: #00c0ac;
+    width: auto;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-left:42%;
+    margin-top:20px;
+    border:none;
+    border-radius: 10px;
+}
+input{
+  border:2px dotted grey
+}
+.button:hover {
+    background:white;
+    color:#00c0ac;
+  }
+     </style>
+ </head>
+  <body>
+    <nav>
+      <div class="logo">
+
+    <a href="/home">dotlearning</a>
+    </div>
+    <ul class="menu-bar">
+  <li class="lia"><a  href="/academic"><i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp;Academic</a></li>
+      <li class="lia"><a  href="/"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
+    </ul>
+    </nav>
+    <div class="container_verify">
+   <form action = "/verify" method="post"  class="box">
+      <h4> Verification Code has been sent to the email id. Please check the email for the confirmation.</h4>
+   <h3>Enter Verification code:  <input type="text" name="otp">  </h3>
+      <input type="submit" value="Submit" class="button">
+   </form>
+  </div>
+ </body>
+ {% include "includes/message.html" %}
+ </html>     
